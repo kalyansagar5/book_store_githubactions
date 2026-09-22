@@ -1,50 +1,81 @@
 {
-"family": "bookstore-task",
-"containerDefinitions": [
-{
-"name": "bookstore-container",
-"image": "public.ecr.aws/docker/library/nginx:latest",
-"cpu": 0,
-"portMappings": [
-{
-"containerPort": 8080,
-"hostPort": 8080,
-"protocol": "tcp",
-"name": "javaapplication",
-"appProtocol": "http"
-}
-],
-"essential": true,
-"environment": [],
-"environmentFiles": [],
-"mountPoints": [],
-"volumesFrom": [],
-"ulimits": [],
-"logConfiguration": {
-"logDriver": "awslogs",
-"options": {
-"awslogs-group": "/ecs/bookstore-task",
-"awslogs-create-group": "true",
-"awslogs-region": "ap-southeast-1",
-"awslogs-stream-prefix": "ecs"
-},
-"secretOptions": []
-},
-"systemControls": []
-}
-],
-"taskRoleArn": "arn:aws:iam::328059080823:role/ecsTaskExecutionRole",
-"executionRoleArn": "arn:aws:iam::328059080823:role/ecsTaskExecutionRole",
-"networkMode": "awsvpc",
-"volumes": [],
-"placementConstraints": [],
-"runtimePlatform": {
-"cpuArchitecture": "X86_64",
-"operatingSystemFamily": "LINUX"
-},
-"requiresCompatibilities": [
-"FARGATE"
-],
-"cpu": "2048",
-"memory": "4096"
+    "taskDefinitionArn": "arn:aws:ecs:ap-south-1:288272421577:task-definition/bookstore-task:1",
+    "containerDefinitions": [
+        {
+            "name": "bookstore-container",
+            "image": "public.ecr.aws/docker/library/nginx:latest",
+            "cpu": 0,
+            "portMappings": [
+                {
+                    "containerPort": 8080,
+                    "hostPort": 8080,
+                    "protocol": "tcp",
+                    "name": "bookstore-container-8080-tcp",
+                    "appProtocol": "http"
+                }
+            ],
+            "essential": true,
+            "environment": [],
+            "environmentFiles": [],
+            "mountPoints": [],
+            "volumesFrom": [],
+            "ulimits": [],
+            "logConfiguration": {
+                "logDriver": "awslogs",
+                "options": {
+                    "awslogs-group": "/ecs/bookstore-task",
+                    "awslogs-create-group": "true",
+                    "awslogs-region": "ap-south-1",
+                    "awslogs-stream-prefix": "ecs"
+                },
+                "secretOptions": []
+            },
+            "systemControls": []
+        }
+    ],
+    "family": "bookstore-task",
+    "executionRoleArn": "arn:aws:iam::288272421577:role/ecsTaskExecutionRole",
+    "networkMode": "awsvpc",
+    "revision": 1,
+    "volumes": [],
+    "status": "ACTIVE",
+    "requiresAttributes": [
+        {
+            "name": "com.amazonaws.ecs.capability.logging-driver.awslogs"
+        },
+        {
+            "name": "ecs.capability.execution-role-awslogs"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
+        },
+        {
+            "name": "ecs.capability.task-eni"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.29"
+        }
+    ],
+    "placementConstraints": [],
+    "compatibilities": [
+        "EC2",
+        "MANAGED_INSTANCES",
+        "FARGATE"
+    ],
+    "runtimePlatform": {
+        "cpuArchitecture": "X86_64",
+        "operatingSystemFamily": "LINUX"
+    },
+    "requiresCompatibilities": [
+        "FARGATE"
+    ],
+    "cpu": "512",
+    "memory": "1024",
+    "registeredAt": "2026-09-22T16:13:44.566Z",
+    "registeredBy": "arn:aws:iam::288272421577:root",
+    "enableFaultInjection": false,
+    "tags": []
 }
