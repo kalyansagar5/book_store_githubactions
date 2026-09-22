@@ -1,5 +1,5 @@
 {
-    "taskDefinitionArn": "arn:aws:ecs:ap-south-1:288272421577:task-definition/bookstore-task:5",
+    "taskDefinitionArn": "arn:aws:ecs:ap-south-1:288272421577:task-definition/bookstore-task:8",
     "containerDefinitions": [
         {
             "name": "bookstore-container",
@@ -10,7 +10,7 @@
                     "containerPort": 8080,
                     "hostPort": 8080,
                     "protocol": "tcp",
-                    "name": "bookstore-container-8080-tcp",
+                    "name": "javaapplication",
                     "appProtocol": "http"
                 }
             ],
@@ -36,7 +36,7 @@
     "family": "bookstore-task",
     "executionRoleArn": "arn:aws:iam::288272421577:role/ecsTaskExecutionRole",
     "networkMode": "awsvpc",
-    "revision": 5,
+    "revision": 8,
     "volumes": [],
     "status": "ACTIVE",
     "requiresAttributes": [
@@ -78,9 +78,9 @@
     "requiresCompatibilities": [
         "FARGATE"
     ],
-    "cpu": "512",
-    "memory": "1024",
-    "registeredAt": "2026-09-22T18:18:17.110Z",
+    "cpu": "1024",
+    "memory": "3072",
+    "registeredAt": "2026-09-22T19:45:26.804Z",
     "registeredBy": "arn:aws:iam::288272421577:root",
     "enableFaultInjection": false,
     "tags": []
