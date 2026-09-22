@@ -1,24 +1,35 @@
 {
+  "family": "bookstore-task",
+  "executionRoleArn": "arn:aws:iam::288272421577:role/ecsTaskExecutionRole",
+  "networkMode": "awsvpc",
+  "requiresCompatibilities": [
+    "FARGATE"
+  ],
+  "cpu": "512",
+  "memory": "1024",
+  "runtimePlatform": {
+    "cpuArchitecture": "X86_64",
+    "operatingSystemFamily": "LINUX"
+  },
   "containerDefinitions": [
     {
       "name": "bookstore-container",
-      "image": "public.ecr.aws/docker/library/nginx:latest",
+      "image": "PLACEHOLDER",
       "cpu": 0,
+      "essential": true,
       "portMappings": [
         {
           "containerPort": 8080,
-          "hostPort": 8080,
           "protocol": "tcp",
           "name": "bookstore-container-8080-tcp",
           "appProtocol": "http"
         }
       ],
-      "essential": true,
       "environment": [],
-      "environmentFiles": [],
       "mountPoints": [],
       "volumesFrom": [],
       "ulimits": [],
+      "systemControls": [],
       "logConfiguration": {
         "logDriver": "awslogs",
         "options": {
@@ -26,24 +37,9 @@
           "awslogs-create-group": "true",
           "awslogs-region": "ap-south-1",
           "awslogs-stream-prefix": "ecs"
-        },
-        "secretOptions": []
-      },
-      "systemControls": []
+        }
+      }
     }
   ],
-  "family": "bookstore-task",
-  "executionRoleArn": "arn:aws:iam::288272421577:role/ecsTaskExecutionRole",
-  "networkMode": "awsvpc",
-  "volumes": [],
-  "placementConstraints": [],
-  "runtimePlatform": {
-    "cpuArchitecture": "X86_64",
-    "operatingSystemFamily": "LINUX"
-  },
-  "requiresCompatibilities": [
-    "FARGATE"
-  ],
-  "cpu": "512",
-  "memory": "1024"
+  "volumes": []
 }
